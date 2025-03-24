@@ -29,7 +29,9 @@ Route::get("/shop", [ProductShopController::class, "index"]);
 
 Route::middleware(AdminCheckMiddleware::class)->prefix("/admin")->group(function ()
 {
-   Route::get("/shop", [AdminShopController::class, "index"]);
+   Route::get("/form", [AdminShopController::class, "index"]);
+   Route::post("/shop", [AdminShopController::class, "shop"])
+   ->name("admin.shop");
 
 });
 
