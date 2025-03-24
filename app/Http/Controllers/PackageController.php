@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PackageRequest;
 use App\Models\PackageModel;
 use App\Models\UserPackageModel;
 use Illuminate\Http\Request;
@@ -23,14 +24,8 @@ class PackageController extends Controller
         return view("fitness.shop", compact("package"));
     }
 
-    public function add(Request $request, PackageModel $package)
+    public function add(PackageRequest $request, PackageModel $package)
     {
-
-//        $request->validate(
-//            [
-//                'user_id' => 'required',
-//                'package_id' => 'required'
-//            ]);
 
         $user = Auth::user();
 
