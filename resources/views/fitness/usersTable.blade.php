@@ -25,7 +25,15 @@
             <tr>
                 <th scope="row">{{$singeUser->id}}</th>
                 <td>{{$singeUser->name}}</td>
-                <td>Otto</td>
+                @if($singeUser->userPackage?->typePackage->package !== null)
+                    <td class="text-primary">{{$singeUser->userPackage?->typePackage->package}} </td>
+
+                @else
+
+                    <td class="text-danger">No</td>
+                @endif
+
+
                 <td>
                     <a href="" class="btn btn-primary">More</a>
                 </td>

@@ -12,4 +12,9 @@ class PackageModel extends Model
 
     const PRICE = [100, 70, 40];
     protected $fillable = ['package', 'price'];
+
+    public function typeOfPackage()
+    {
+        return $this->hasOne(UserPackageModel::class, "package_id", "id");
+    }
 }
